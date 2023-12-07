@@ -1,10 +1,13 @@
+To start the api you need:
+ - a .env file with the structure like .env-example
+ - start postgres database with docker or something else
+ - create kubernetes cluster with kind (make build/kubernetes)
+ - start api (make run/api)
+
+After Creating a service you can access the deployment with port-forwarding
+```
+kubectl port-forward service/service-name NodePort:NormalPort
+```
+
 TODO:
- - Check user authentication
-    - More efficient with less data not full struct anymore
  - Use structured logging slog
- - Change env_var from input to image specific struct 
-
- kubectl port-forward service/mamamia-service 31153:5432
- panic: Service "deployment-1-user-3-service" is invalid: spec.ports[0].nodePort: Invalid value: 33000: provided port is not in the valid range. The range of valid ports is 30000-32767
-
- user struct register ouput not sorted
